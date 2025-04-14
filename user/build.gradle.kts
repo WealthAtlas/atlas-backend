@@ -6,9 +6,8 @@ plugins {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.postgresql:postgresql:42.7.2")
+    implementation("io.arrow-kt:arrow-core:2.0.1")
 }
 
 tasks {

@@ -3,3 +3,18 @@ management:
     web:
       exposure:
         include: health
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/wealth-atlas
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+logging:
+  level:
+    org.springframework: DEBUG

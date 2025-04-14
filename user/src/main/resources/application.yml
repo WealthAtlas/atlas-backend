@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/your_database_name
+    url: jdbc:postgresql://localhost:5432/wealth-atlas
     driver-class-name: org.postgresql.Driver
-    username: your_username
-    password: your_password
+    username: postgres
+    password:
   jpa:
     hibernate:
       ddl-auto: update

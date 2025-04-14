@@ -1,17 +1,26 @@
 package com.atlas.user.persistence.entities
 
 import com.atlas.user.domain.User
-import jakarta.persistence.Entity
+import jakarta.persistence.*
 
 @Entity
-class UserEntity(
-    val id: Long,
-    val name: String,
-    val email: String,
-    val password: String
+@Table(name = "users")
+data class UserEntity(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long = 0,
+
+    @Column(nullable = false, unique = false)
+    val name: String = "",
+
+    @Column(nullable = false, unique = true)
+    val email: String = "",
+
+    @Column(nullable = false, unique = false)
+    val password: String = ""
 ) {
     fun toDomain(): User {
-        return User(id, name, email, password)
+        return User(id = id, name = name, email = email, password = password)
     }
 
     companion object {
