@@ -1,6 +1,5 @@
 package com.atlas.user.services
 
-import arrow.core.Either
 import com.atlas.user.domain.User
 import com.atlas.user.persistence.entities.UserEntity
 import com.atlas.user.persistence.repositories.UserRepository
@@ -10,9 +9,9 @@ import org.springframework.stereotype.Service
 @Service
 class UserService(val userRepository: UserRepository) {
 
-    fun registerUser(name: String, email: String, password: String): Either<String, Unit> {
+    fun registerUser(name: String, email: String, password: String): Result<Unit> {
         userRepository.findByEmail(email)?.let {
-            return Either.Left("User already exists")
+            return Result.failure(Exception("User with email $email already exists"))
         }
 
         userRepository.save(
@@ -23,15 +22,15 @@ class UserService(val userRepository: UserRepository) {
                 password = password
             )
         )
-        return Either.Right(Unit)
+        return Result.success(Unit)
     }
 
-    fun getByUserId(userId: Long): Either<String, User> {
+    fun getByUserId(userId: Long): Result<User> {
         val user = userRepository.findByIdOrNull(userId)
         return if (user != null) {
-            Either.Right(user.toDomain())
+            Result.success(user.toDomain())
         } else {
-            Either.Left("User not found")
+            Result.failure(Exception("User not found"))
         }
     }
 }

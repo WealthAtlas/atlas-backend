@@ -1,3 +1,5 @@
+package com.atlas.user.dtos.requests
+
 data class RegisterUserRequest(
     val name: String,
     val email: String,
