@@ -1,4 +1,4 @@
-package com.atlas.user.dtos.requests
+package com.atlas.common.models.user
 
 data class RegisterUserRequest(
     val name: String,

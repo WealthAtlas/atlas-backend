@@ -1,15 +1,15 @@
 package com.atlas.auth.controllers
 
-import com.atlas.auth.dtos.requests.RegisterCredentialRequest
-import com.atlas.auth.dtos.requests.ValidateCredentialRequest
-import com.atlas.auth.dtos.responses.TokenResponse
 import com.atlas.auth.services.CredentialService
+import com.atlas.common.models.auth.RegisterCredentialRequest
+import com.atlas.common.models.auth.TokenResponse
+import com.atlas.common.models.auth.ValidateCredentialRequest
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/credentials")
+@RequestMapping("/auth")
 class CredentialController(private val credentialService: CredentialService) {
 
     @PostMapping("/register")

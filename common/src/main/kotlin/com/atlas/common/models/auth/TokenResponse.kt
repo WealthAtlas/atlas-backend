@@ -1,4 +1,4 @@
-package com.atlas.auth.dtos.responses
+package com.atlas.common.models.auth
 
 data class TokenResponse(
     val token: String

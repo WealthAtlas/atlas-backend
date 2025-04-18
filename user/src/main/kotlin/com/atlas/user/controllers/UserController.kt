@@ -1,6 +1,6 @@
 package com.atlas.user.controllers
 
-import com.atlas.user.dtos.requests.RegisterUserRequest
+import com.atlas.common.models.user.RegisterUserRequest
 import com.atlas.user.domain.User
 import com.atlas.user.services.UserService
 import org.springframework.http.HttpStatus
@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/users")
-class UserController(val userService: UserService) {
+class UserController(private val userService: UserService) {
 
     @PostMapping
     fun createUser(@RequestBody request: RegisterUserRequest): ResponseEntity<Unit> {
         return userService.registerUser(name = request.name, email = request.email, password = request.password).fold({
-                ResponseEntity.status(HttpStatus.CREATED).build()
-            }, { ResponseEntity.badRequest().build() })
+            ResponseEntity.status(HttpStatus.CREATED).build()
+        }, { ResponseEntity.badRequest().build() })
     }
 
     @GetMapping("/{userId}")
