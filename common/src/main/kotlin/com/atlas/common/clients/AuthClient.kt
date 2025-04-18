@@ -14,7 +14,7 @@ class AuthClient(
         val request = RegisterCredentialRequest(userId, email, password)
         return webClientBuilder.build()
             .post()
-            .uri("$authServiceUrl/credentials/register")
+            .uri("$authServiceUrl/register")
             .bodyValue(request)
             .retrieve()
             .toBodilessEntity()

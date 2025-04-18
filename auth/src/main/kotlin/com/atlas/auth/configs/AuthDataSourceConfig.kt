@@ -1,4 +1,4 @@
-package com.atlas.user.configs
+package com.atlas.auth.configs
 
 import com.atlas.common.config.AbstractDataSourceConfig
 import jakarta.persistence.EntityManagerFactory

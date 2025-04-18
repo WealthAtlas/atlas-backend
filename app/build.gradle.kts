@@ -10,13 +10,15 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.postgresql:postgresql:42.7.2")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.postgresql:postgresql")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage") // Remove JUnit 4 engine
     }
 
-    implementation(project(":common"))
     implementation(project(":user"))
+    implementation(project(":auth"))
+    implementation(project(":common"))
     testImplementation(project(":common"))
 }
 

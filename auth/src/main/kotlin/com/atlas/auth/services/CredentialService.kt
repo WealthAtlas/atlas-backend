@@ -6,6 +6,7 @@ import com.atlas.common.models.auth.TokenResponse
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import io.jsonwebtoken.security.Keys
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 import java.security.Key
@@ -15,8 +16,8 @@ import java.util.*
 class CredentialService(
     private val credentialRepository: CredentialRepository,
     private val passwordEncoder: BCryptPasswordEncoder = BCryptPasswordEncoder(),
-    private val jwtSecret: String,
-    private val jwtExpiration: Long
+    @Value("\${jwt.secret}") private val jwtSecret: String,
+    @Value("\${jwt.expiration}") private val jwtExpiration: Long
 ) {
     private val signingKey: Key by lazy {
         Keys.hmacShaKeyFor(jwtSecret.toByteArray())
