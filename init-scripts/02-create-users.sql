@@ -1,0 +1,7 @@
+CREATE USER auth_user WITH PASSWORD 'secret';
+GRANT USAGE ON SCHEMA auth TO auth_user;
+GRANT ALL PRIVILEGES ON SCHEMA auth TO auth_user;
+
+CREATE USER users_user WITH PASSWORD 'secret';
+GRANT USAGE ON SCHEMA users TO users_user;
+GRANT ALL PRIVILEGES ON SCHEMA users TO users_user;

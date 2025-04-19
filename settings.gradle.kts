@@ -13,4 +13,4 @@ pluginManagement {
 
 rootProject.name = "atlas-backend"
 
-include("app", "user")
+include("app", "user", "auth", "common")
