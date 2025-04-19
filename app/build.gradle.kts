@@ -12,14 +12,14 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.postgresql:postgresql")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
-        exclude(group = "org.junit.vintage") // Remove JUnit 4 engine
-    }
-
     implementation(project(":user"))
     implementation(project(":auth"))
     implementation(project(":common"))
-    testImplementation(project(":common"))
+
+    testImplementation(testFixtures(project(":common")))
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude(group = "org.junit.vintage") // Remove JUnit 4 engine
+    }
 }
 
 tasks.test {

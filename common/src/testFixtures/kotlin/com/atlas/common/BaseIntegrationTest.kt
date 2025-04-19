@@ -1,4 +1,4 @@
-package com.atlas.app
+package com.atlas.common
 
 import org.junit.jupiter.api.TestInstance
 import org.springframework.boot.test.context.SpringBootTest
