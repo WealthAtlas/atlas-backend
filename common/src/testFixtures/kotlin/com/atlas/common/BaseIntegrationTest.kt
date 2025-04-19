@@ -16,9 +16,14 @@ abstract class BaseIntegrationTest {
     companion object {
         @Container
         private val postgresContainer = PostgreSQLContainer<Nothing>("postgres:15-alpine").apply {
-            withDatabaseName("test-db")
-            withUsername("test-user")
-            withPassword("test-pass")
+            withDatabaseName("wealthwave")
+            withUsername("postgres")
+            withPassword("postgres")
+            withInitScript("init.sql")
+        }
+
+        init {
+            postgresContainer.start()
         }
 
         @JvmStatic
