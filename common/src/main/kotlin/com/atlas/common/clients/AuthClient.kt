@@ -1,6 +1,6 @@
 package com.atlas.common.clients
 
-import com.atlas.common.models.auth.RegisterCredentialRequest
+import com.atlas.common.dtos.auth.RegisterCredentialRequest
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient

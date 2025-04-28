@@ -1,5 +1,6 @@
 package com.atlas.common
 
+import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.TestInstance
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.DynamicPropertyRegistry
@@ -33,5 +34,10 @@ abstract class BaseIntegrationTest {
             registry.add("spring.datasource.username") { postgresContainer.username }
             registry.add("spring.datasource.password") { postgresContainer.password }
         }
+    }
+
+    @AfterAll
+    fun tearDown() {
+        postgresContainer.stop()
     }
 }

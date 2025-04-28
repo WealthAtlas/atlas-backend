@@ -1,6 +1,6 @@
 package com.atlas.user.controllers
 
-import com.atlas.common.models.user.RegisterUserRequest
+import com.atlas.common.dtos.user.RegisterUserRequest
 import com.atlas.user.domain.User
 import com.atlas.user.services.UserService
 import org.springframework.http.HttpStatus

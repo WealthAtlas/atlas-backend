@@ -2,7 +2,7 @@ package com.atlas.auth.services
 
 import com.atlas.auth.persistence.entities.CredentialEntity
 import com.atlas.auth.persistence.repositories.CredentialRepository
-import com.atlas.common.models.auth.TokenResponse
+import com.atlas.common.dtos.auth.TokenResponse
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import io.jsonwebtoken.security.Keys

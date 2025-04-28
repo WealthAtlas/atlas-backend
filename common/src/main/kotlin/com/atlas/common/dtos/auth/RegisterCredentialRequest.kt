@@ -1,4 +1,4 @@
-package com.atlas.common.models.auth
+package com.atlas.common.dtos.auth
 
 data class RegisterCredentialRequest(
     val userId: Long,

@@ -1,12 +1,15 @@
 package com.atlas.auth.controllers
 
 import com.atlas.auth.services.CredentialService
-import com.atlas.common.models.auth.RegisterCredentialRequest
-import com.atlas.common.models.auth.TokenResponse
-import com.atlas.common.models.auth.ValidateCredentialRequest
+import com.atlas.common.dtos.auth.RegisterCredentialRequest
+import com.atlas.common.dtos.auth.TokenResponse
+import com.atlas.common.dtos.auth.ValidateCredentialRequest
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/auth")
@@ -24,7 +27,7 @@ class CredentialController(private val credentialService: CredentialService) {
     }
 
     @PostMapping("/validate")
-    fun validateCredential(@RequestParam request: ValidateCredentialRequest): ResponseEntity<TokenResponse> {
+    fun validateCredential(@RequestBody request: ValidateCredentialRequest): ResponseEntity<TokenResponse> {
         return credentialService.validateCredential(email = request.email, password = request.password)
             .fold({ tokenResponse ->
                 ResponseEntity.ok(tokenResponse)

@@ -36,7 +36,7 @@ logging:
     com.atlas: DEBUG
 
 jwt:
-  secret: ${JWT_SECRET:default-secret-key}
+  secret: ${JWT_SECRET:qJ3+8X9vZ2R5T0pQb1N2c3R5dXZ3eHl6QWJjZGVmZ2hpamtsbW5vcHFyc3Q=}
   expiration: 3600
 
 services:
